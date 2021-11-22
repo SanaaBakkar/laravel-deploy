@@ -22,7 +22,7 @@ COPY .env.example .env
 ARG GOOGLE_CLOUD_PROJECT
 
 FROM gcr.io/cloud-builders/gcloud
-
+FROM gcr.io/cloud-builders/docker
 RUN sed -ri -e 's/project_id/${GOOGLE_CLOUD_PROJECT}/g' .env
 
 # Install composer packages
