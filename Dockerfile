@@ -1,6 +1,10 @@
 #Import the image with basic ubuntu system and php along with extensions installed.
 FROM sandymadaan/php7.3-docker:0.4
 
+FROM gcr.io/cloud-builders/docker
+
+FROM gcr.io/cloud-builders/gcloud
+
 # Copy local code to the container image.
 COPY . /var/www/html/
 
@@ -21,8 +25,7 @@ COPY .env.example .env
 
 ARG GOOGLE_CLOUD_PROJECT
 
-FROM gcr.io/cloud-builders/gcloud
-FROM gcr.io/cloud-builders/docker
+
 RUN sed -ri -e 's/project_id/${GOOGLE_CLOUD_PROJECT}/g' .env
 
 # Install composer packages
