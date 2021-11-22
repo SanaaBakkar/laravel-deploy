@@ -27,7 +27,8 @@ steps:
     '--memory',
     '256Mi',
     '--update-env-vars',
-    'APP_DEBUG=${_APP_DEBUG}'
+    'APP_DEBUG=${_APP_DEBUG}',
+    --network=cloudbuild
     ]
 images:
 - gcr.io/$PROJECT_ID/${_CLOUD_RUN_SERVICE}
